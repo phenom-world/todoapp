@@ -1,63 +1,19 @@
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-<style>
+{% extends 'base.html' %}
+{% block content %}
+  
 
-	body{
-		background-color: #638CB8;
-	}
-
-	input{
-		width: 100%;
-		padding: 12px 20px;
-		margin: 8px 0;
-		box-sizing: border-box;
-	}
-
-	input::placeholder {
-	  color: #d3d3d3;
-	}
-
-	.submit{
-		background-color: #6BA3E8;
-	}
-
-	.center-column{
-		text-align: center;
-		font-weight: bold;
-		width:600px;
-		margin: 20px auto;
-		padding:20px;
-		background-color: #fff;
-		border-radius: 3px;
-		box-shadow: 6px 2px 30px 0px rgba(0,0,0,0.75);
-	}
-
-	.item-row{
-		background-color: #906abd;
-		margin: 10px;
-		padding: 20px;
-		border-radius: 3px;
-		color: #fff;
-		font-size: 16px;
-		box-shadow: 0px -1px 10px -4px rgba(0,0,0,0.75);
-	}
-
-</style>
-
-{% include  'header.html' %}
-<nav class="navbar" style="background-color: rgb(64,89,195);" >
-	<div style="background-color: rgb(64,89,195);" class="container-fluid">
-	  <span class="task navbar-brand" style="color: white; font-size: 20px; margin: 0px auto;">Delete Task</span>
-	</div>
-  </nav>
-<div class= 'center-column'>
+<div style="margin: 10px; text-align: center;">
+	<span class="task navbar-brand" style=" font-weight: 500; font-size: 20px; "><i class="fa fa-trash"
+			style=" color: #690061;"></i> Delete Tasks</span>
+</div>
+<div style="text-align: center" class="center-column">
 <p>Are you sure you want to delete <span style="color:red"> "{{item}}"</span>?</p>
-
 
 
 <form method="POST" action="">
 	{% csrf_token %}
 	<input class="btn btn-danger" type="submit" name="Confirm" value="Yes, Delete">
 </form>
-<a href="{% url 'index' %}" >Cancel</a>
+<a href="{% url 'index' %}" style="text-decoration: none;" >Cancel</a>
 </div>
-{% include  'footer.html' %}
+{% endblock content %}
